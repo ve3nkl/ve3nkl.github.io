@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<HTML>
+  <HEAD>
+    <TITLE>Wearable Station</TITLE>
+    <LINK href="main.css" rel="stylesheet" type="text/css" charset="utf-8"/>
+    <script type="text/javascript" src="common.js"></script>
+  </HEAD>
+  <BODY>
+    <DIV id="main">
+      <DIV id="popup-div"><img id="enlarged-image" src="" alt="Enlarged Image" onclick="closePopup();"/></DIV>      
+      <DIV class="separator"></DIV>
+      <DIV class="title"><IMG id="image-title" alt="image title" src="title-image2.jpg"/></DIV>
+      <DIV class="container">
+        
+<!-- Side menu -->
+
+<div class="sidemenu">
+  <span><a href="index.html">Home</a></span>
+  <span>Wearable Station</span>
+  <span><a href="roofrack-station.html">Car Roofrack Mounted Station</a></span>
+  <span><a href="cw-interface.html">Morse Code Computer Interface</a></span>
+  <span><a href="rf-power-meter.html">Microwave RF Power Meter</a></span>
+</div>
+      
+<!-- Page context -->
+
+<div id="page">
+  <h1>Wearable Sattelite Station</h1>
+  <p>This satellite station was built to work SSB satellites. From the very
+  beginning I wanted to have a “wearable” station, the one where you would
+  not require any surfaces to put the radios on or a tripod to mount the
+  antenna.</p>
+  <p>As the two radios I have are Yaesu FT-817ND and Elecraft KX3 with the
+  2m option installed, my initial thought was to put both radios in a single
+  bag that could be worn using a shoulder strap. The Arrow antenna could be
+  held in a hand, of cause. Unfortunately, this simple design did not work
+  very well for me. Having the two radios really close together caused
+  receiver desense during transmit.</p>
+  <p>This issue was not difficult to resolve: the Elecraft radio remained in
+  the bag but the Yaesu was moved on my other shoulder. In fact, now I could
+  use a smaller bag for the Elecraft rig.</p>
+  <div class="image" style="width: 550px;"><img src="ws-two-radios.jpg"/></div>
+  <p>On the picture above you can see both radios. Yaesu FT-817ND has a spacer
+  made of PVC fittings attached to it. Its purpose is to provide some space
+  between the controls and the body so that the controls are not altered
+  accidentally. You can also see a morse code Pico Paddle from Palm Radio
+  attached to the Yeasu rig. Although it is not visible very well on the picture
+  but there is a voice recorder located between the Elecraft rig and the body.</p>
+  <p>This recorder has a very useful feature. You can monitor your audio being
+  recorded. The input of the recorder is connected to the phone output of the
+  receive radio and the output goes to the actual phones. The recorder won’t
+  provide any output unless it is in the recording mode. If you can hear the
+  signal in your phones it means it is being recorded. This way you cannot
+  forget to press the “record” button …</p>
+  <p>When I tried to use this setup I found another problem: I have only two hands.
+  Not that I never noticed this before, but I have never felt such a desperate
+  need for the third one. It would be really great to be able to fine-turn your
+  frequency during the transmit. But pressing the PTT button, turning the
+  frequency nob and holding the antenna with only two hands is a great challenge.</p>
+  <p>The solution came in the form of an external PTT button mounted on the Arrow boom,
+  right next to the handle.</p>
+  <div class="image" style="width: 150px;"><img src="ws-ptt-button.jpg"/></div>
+  <p>It was made of a PVC tube cap and a metal angle piece left from assembling
+  a furniture (why there are always extra parts left ?). I shaped it to serve as
+  a brace. A glue gun was used to keep in place a micro button inserted in the
+  opening of the PVC cap.</p>
+  <p>When I work a Satellite having its uplink on UHF and its downlink on VHF, I
+  have to connect the mic and the PTT button to the Yaesu rig and the phones to
+  the Elecraft rig (in fact, there is also a voice recorder in between). Now consider
+  this: I am using a Heil Sound headset with a two-pin connector for an ICOM handheld
+  radios, a Yeasu rig, an Elecraft rig and a homebrew PTT button. To connect all my
+  zoo together I had to use a small interface box (another homebrew project) shown in
+  the picture below.</p>
+  <div class="image" style="width: 410px;">
+    <img src="ws-adapter-1.jpg" style="width: 200px;"/>
+    <img src="ws-adapter-2.jpg" style="width: 200px;"/>
+  </div>
+  <p>The blue plug (made of a piece of an old Ethernet cable) is connected to the
+  Yaesu RJ-45 mic socket. The light green audio plug is for the phones socket (in
+  my case I connect it to the output of the voice recorder). The single socket on
+  the left picture is for a cable coming from my PTT button and the two sockets on
+  the right picture are compatible with the double-pin ICOM audio standard (for my
+  Heil Sound headset). Just in case you are interested in more details here is the
+  schematics of this box:</p>
+  <div class="image" style="width: 640px;"><img src="ws-schematics.png"/></div>
+  <p>One tiny detail left to be told. The Heil Sound headset I am using has its own
+  PTT button on its cable. Even though my PTT puts Yaesu in the TX mode, the audio
+  from the headset mic won’t come in unless the headset’s PTT button is also depressed.
+  So in order to work properly this headset’s PTT button have to be kept in the pushed
+  down position. As usual, PVC tubes come to the rescue…</p>
+  <div class="image" style="width: 150px;"><img src="ws-heil-mic-ptt-clip.jpg" /></div>
+  <p>A cut in the piece of tube is done to create a spring action. A small piece of
+  soft plastic (it was part of a mirror mounting kit) is used to press on the PTT
+  button.</p>
+  <p>Thank you for reading.</p>
+  <p>73 !</p>
+  
+</div>
+        <DIV class="row-end"></DIV>
+      </DIV>
+<!-- Page footer -->
+      <DIV class="separator"></DIV>
+    </DIV>
+  </BODY>
+</HTML>
