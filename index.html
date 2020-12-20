@@ -1,41 +1,100 @@
 <!DOCTYPE html>
-<HTML>
-  <HEAD>
-    <TITLE>VE3NKL Home</TITLE>
-    <LINK href="main.css" rel="stylesheet" type="text/css" charset="utf-8"/>
-    <script type="text/javascript" src="common.js"></script>
-  </HEAD>
-  <BODY>
-    <DIV id="main">
-      <DIV id="popup-div"><img id="enlarged-image" src="" alt="Enlarged Image" onclick="closePopup();"/></DIV>      
-      <DIV class="separator"></DIV>
-      <DIV class="title"><IMG id="image-title" alt="image title" src="title-image2.jpg"/></DIV>
-      <DIV class="container">
-        
-<!-- Side menu -->
+<html lang="en">
 
-<div class="sidemenu">
-  <span>Home</span>
-  <span><a href="wearable-station.html">Wearable Station</a></span>
-  <span><a href="rotator-controller.html">Rotator Controller</a></span>
-  <span><a href="roofrack-station.html">Car Roofrack Mounted Station</a></span>
-  <span><a href="cw-interface.html">Morse Code Computer Interface</a></span>
-  <span><a href="rf-power-meter.html">Microwave RF Power Meter</a></span>
-</div>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bootstrap Test</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./bootstrap.min.css" rel="stylesheet">
+  <link href="./lightbox/css/lightbox.css" rel="stylesheet">
+  <style>
+    .spacer2 { height: 2px; width: 100%; font-size: 0; margin: 0; padding: 0; border: 0; display: block; } 
+  </style>
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <div class="navbar-brand">VE3NKL Amateur Radio Projects</div>
+    </div>
+  </nav>
+    
+  <div class="spacer2"></div>  
+
+  <!-- Main image -->
+  <div style="background-color: black;">
+    <img class="img-fluid" src="title-image2.jpg" alt="Main Image">
+  </div>
+  <div class="spacer2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top" role="navigation">
+    <div class="container">
       
-<!-- Page context -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggler navbar-toggler-right hidden-sm-up bg-dark" data-toggle="collapse" data-target="#navbarMain">
+          <span class="navbar-toggler-icon bg-dark"></span>
+          <!--<span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> -->
+        </button>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="dropdown"><a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+            <ul class="dropdown-menu bg-dark">
+              <li class="nav-item"><a href="rotator-controller.html">Rotator Controller</a></li>
+              <li class="nav-item"><a href="#">Morse Code Keyboard</a></li>
+              <li class="nav-item"><a href="#">Antenna Direction Sensor</a></li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>  -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <div class="container mt-2 mb-2">
+      
+      <div class="row">
+        <div class="col-sm-8">
+<p class="text-justify"><br/>Thank you for stopping by. This site contain
+descriptions of several ham radio-related projects. If you would like to
+send me an email, the address can be found on my QRZ page. 73 !</p>    
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <img src="licplate.png" class="img-thumbnail round">     
+        </div>
+      </div>
+  
+    </div>
+  </div>
 
-<div id="page">
-  <h1>Welcome to my QTH on the Web</h1>
-  <p>This is a WWW home of the station VE3NKL. Thank you for stopping by.
-  This site contain descriptions of several ham radio-related projects.
-  If you would like to send me an email, the address can be found on my QRZ page.
-  73 !</p>
-</div>
-        <DIV class="row-end"></DIV>
-      </DIV>
-<!-- Page footer -->
-      <DIV class="separator"></DIV>
-    </DIV>
-  </BODY>
-</HTML>
+  <!-- Bootstrap core JavaScript -->
+  <script src="./jquery-1.11.1.min.js"></script>
+  <script src="./bootstrap.bundle.min.js"></script>
+  <script src="./lightbox/js/lightbox.js"></script>
+
+</body>
+
+</html>

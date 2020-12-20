@@ -1,78 +1,185 @@
 <!DOCTYPE html>
-<HTML>
-  <HEAD>
-    <TITLE>Rotator Controller</TITLE>
-    <LINK href="main.css" rel="stylesheet" type="text/css" charset="utf-8"/>
-    <script type="text/javascript" src="common.js"></script>
-  </HEAD>
-  <BODY>
-    <DIV id="main">
-      <DIV id="popup-div"><img id="enlarged-image" src="" alt="Enlarged Image" onclick="closePopup();"/></DIV>      
-      <DIV class="separator"></DIV>
-      <DIV class="title"><IMG id="image-title" alt="image title" src="title-image2.jpg"/></DIV>
-      <DIV class="container">
-        
-<!-- Side menu -->
+<html lang="en">
 
-<div class="sidemenu">
-  <span><a href="index.html">Home</a></span>
-  <span><a href="wearable-station.html">Wearable Station</a></span>
-  <span>Rotator Controller</span>
-  <span><a href="roofrack-station.html">Car Roofrack Mounted Station</a></span>
-  <span><a href="cw-interface.html">Morse Code Computer Interface</a></span>
-  <span><a href="rf-power-meter.html">Microwave RF Power Meter</a></span>
-</div>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bootstrap Test</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./bootstrap.min.css" rel="stylesheet">
+  <link href="./lightbox/css/lightbox.css" rel="stylesheet">
+  <style>
+    .spacer2 { height: 2px; width: 100%; font-size: 0; margin: 0; padding: 0; border: 0; display: block; } 
+  </style>
+
+</head>
+
+<body>
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <div class="navbar-brand">VE3NKL Amateur Radio Projects</div>
+    </div>
+  </nav>
+    
+  <div class="spacer2"></div>  
+
+  <!-- Main image -->
+  <div style="background-color: black;">
+    <img class="img-fluid" src="title-image2.jpg" alt="Main Image">
+  </div>
+  <div class="spacer2"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">Rotator Controller</div>
       
-<!-- Page context -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggler navbar-toggler-right hidden-sm-up bg-dark" data-toggle="collapse" data-target="#navbarMain">
+          <span class="navbar-toggler-icon bg-dark"></span>
+          <!--<span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span> -->
+        </button>
+      </div>
+      
+      <div class="collapse navbar-collapse" id="navbarMain">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home
+            </a>
+          </li>
+          <li class="dropdown"><a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Projects<span class="caret"></span></a>
+            <ul class="dropdown-menu bg-dark">
+              <li class="nav-item"><a href="#">Rotator Controller<span class="sr-only">(current)</span></a></li>
+              <li class="nav-item"><a href="#">Morse Code Keyboard</a></li>
+              <li class="nav-item"><a href="#">Antenna Direction Sensor</a></li>
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+    <div class="container mt-2 mb-2">
 
-<div id="page">
-  <h1>Rotator Controller</h1>
-  <p>The controller was designed to work with the car roof rack-mounted satellite antenna system (a separate project), but
-  can be used with any other design based on the supported rotator hardware.</p>
-  <img src="rotctl01.jpg" alt="Rotator controller by VE3NKL"/>
-  <h2>Functionality Overview</h2>
-  <p>The first version of the controller supports Alfa Radio rotator, model RAU only, performing
-  horizontal rotation of the antenna system. For satellite use the fixed elevation technique can be employed.
-  It is expected that the future versions of the controller could control the elevation antenna mechanism as well.
-  The following functions are provided by the controller:</p>
-  <p><ul>
-    <li>Tracking time by using high precision on-board clock.</li>
-    <li>Providing soft boundaries for horizontal rotation of the system (to prevent potential damage to cables).
-    By default the antenna can be rotated by up to 270 degrees either way from its initial position. This boundary value
-    can be changed in the settings menu.</li>
-    <li>Providing manual mode where the antenna can be moved to any position as needed.</li>    
-    <li>Communicating with PC using USB interface for receiving 
-    rotation commands. The controller simulates basic commands of the Yaesu GS-232B rotator.</li>
-    <li>Communicating with PC using USB interface for receiving a Sattelite pass data. The data
-    for several future passes can be stored on the Arduino board. The stored data can be used
-    by the controller to control the rotator autonomously, without being connected to any computer.</li>
-    <li><img class="small" src="pass-direction.png" alt="Rotation direction example"/>
-    Automatically determines the direction of rotation for initial position of the antenna system when
-    tracking a satellite using stored pass data.
-    The shortest pass to the the AOS azimuth is not necessarily the best solution. Consider the following example:
-    the initial direction of the antenna system is North (0 degrees). The rotation cannot exceed 270 degrees
-    either way from the initial direction. The coming satellite's AOS is 120 degrees and AOL is 280 degrees
-    (see the picture on the right).
-    The controller will automatically choose rotating the antenna system counter clockwise for 240 degrees to
-    reach the initial point of 120 degrees. After the satellite rises and starts moving clockwise toward the 280 degree
-    azimuth, the antenna will follow it. If it were moved to the initial point using the shortest way (clockwise) and then 
-    tried to follow the satellite, the last 10 degrees of the satellite pass would not be covered due to the 270 degree
-    rotation restriction. The functionality is provided by the controller when the satellite pass data are saved in the 
-    controller and it is working in the autonomous mode. When it follows the commands from a connected computer, the direction
-    of rotation is determined by the appropriate computer program.</li>
-    <li>Providing a sophisticated settings menu allowing an operator to switch between various modes,
-    set many parameters and perform some commands (such as returning antenna to the parking position).</li>
-    <li>Detecting jamming situation and automatically switching off the rotator's motor.</li>
-  </ul></p>
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="text-center mt-5 mb-5">Rotator Controller</h1>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-8">
+<p class="text-justify">The controller was designed to work with the car roof rack-mounted satellite antenna system (a separate project), but
+can be used with any other design based on the supported rotator hardware.</p>    
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+<a href="./rotator-controller/rotctl01.jpg" data-lightbox="rotctl01" data-title="Rotator Controller">
+  <img src="./rotator-controller/rotctl01.jpg" class="img-thumbnail round">     
+</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+<h2>Functionality Overview</h2>          
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-8">
+  
+<p class="text-justify">The first version of the controller supports Alfa Radio rotator, model RAU only, performing
+horizontal rotation of the antenna system. For satellite use the fixed elevation technique can be employed.
+It is expected that the future versions of the controller could control the elevation antenna mechanism as well.
+The following functions are provided by the controller:</p>
+<ul>
+  <li class="text-justify">Tracking time by using high precision on-board clock.</li>
+  <li class="text-justify">Providing soft boundaries for horizontal rotation of the system (to prevent potential damage to cables).
+  By default the antenna can be rotated by up to 270 degrees either way from its initial position. This boundary value
+  can be changed in the settings menu.</li>
+  <li class="text-justify">Providing manual mode where the antenna can be moved to any position as needed.</li>    
+  <li class="text-justify">Communicating with PC using USB interface for receiving 
+  rotation commands. The controller simulates basic commands of the Yaesu GS-232B rotator.</li>
+  <li class="text-justify">Communicating with PC using USB interface for receiving a Sattelite pass data. The data
+  for several future passes can be stored on the Arduino board. The stored data can be used
+  by the controller to control the rotator autonomously, without being connected to any computer.</li>
+</ul>
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+        </div>          
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-8">  
+<ul>
+  <li class="text-justify">Automatically determines the direction of rotation for initial position of the antenna system when
+  tracking a satellite using stored pass data.
+  The shortest pass to the the AOS azimuth is not necessarily the best solution. Consider the following example:
+  the initial direction of the antenna system is North (0 degrees). The rotation cannot exceed 270 degrees
+  either way from the initial direction. The coming satellite's AOS is 120 degrees and AOL is 280 degrees
+  (see the picture on the right).
+  The controller will automatically choose rotating the antenna system counter clockwise for 240 degrees to
+  reach the initial point of 120 degrees. After the satellite rises and starts moving clockwise toward the 280 degree
+  azimuth, the antenna will follow it. If it were moved to the initial point using the shortest way (clockwise) and then 
+  tried to follow the satellite, the last 10 degrees of the satellite pass would not be covered due to the 270 degree
+  rotation restriction. The functionality is provided by the controller when the satellite pass data are saved in the 
+  controller and it is working in the autonomous mode. When it follows the commands from a connected computer, the direction
+  of rotation is determined by the appropriate computer program.</li>
+</ul>
+
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <a href="./rotator-controller/pass-direction.png" data-lightbox="pass-direction" data-title="Rotation direction example">
+            <img class="img-thumbnail" src="./rotator-controller/pass-direction.png" alt="Rotation direction example"/>
+          </a>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-8">        
+  
+<ul>
+  <li class="text-justify">Providing a sophisticated settings menu allowing an operator to switch between various modes,
+  set many parameters and perform some commands (such as returning antenna to the parking position).</li>
+  <li class="text-justify">Detecting jamming situation and automatically switching off the rotator's motor.</li>
+</ul>
+
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-12">
   <h2>Components</h2>
-  <p>The controller is based on the Arduino Micro Pro board, 16Mhz version. It also has a DC to DC down stepper to 
-  convert power from 12V CD to 5V DC. A Relay block controlled by the microprocessor is used to control the 
+        </div>
+      </div>      
+      
+      <div class="row">
+        <div class="col-sm-8">              
+      
+  <p class="text-justify">The controller is based on the Arduino Micro Pro board, 16Mhz version. It also has a DC to DC down stepper to 
+  convert power from 12V DC to 5V DC. A Relay block controlled by the microprocessor is used to control the 
   rotator. There is also a quartz-stabilized clock board for keeping accurate time (with an accuracy of
   less than a second per day). It communicates with the Arduino microprocessor using the I2C interface.</p>
-  <p>A 20-character 2 line display (40 characters in total) is also connected to the I2C bus. 5 buttons (4 on the front panel
+  <p class="text-justify">A 20-character 2 line display (40 characters in total) is also connected to the I2C bus. 5 buttons (4 on the front panel
   and the menu button on the back panel) are also connected to the Arduino board.</p>
-  <p>To view the schematic of the controller (a PDF document) click the icon on the rigth.
-  <a href="rotator-1_1.pdf"><img class="small" src="schematics-icon.png" alt="schematics"/></a>In addition to
+  <p class="text-justify">In addition to
   the mentioned above components the logic level converters were used where it was necessary to connect the circuits 
   using 5V and 3.3V TTL logic. 
   Note a RC filter at the sensor input. This input is used to read pulses from the rotator. The purpose
@@ -81,9 +188,25 @@
   in the software. As for the rotational sensor, its contacts are used to trigger an interrupt in the microprocessor.
   To avoid multiple interrupts occurring in a small fraction of a second, a simple RC filter was used. The rest of the schematic
   is self-explanatory.</p>
+  
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <a href="./rotator-controller/schematics-full.jpg" data-lightbox="Schematics" data-title="Schematics">
+            <img class="img-thumbnail" src="./rotator-controller/schematics-sample.jpg" alt="Schematics"/>
+          </a>
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-12">
   <h2>Front Panel Controls</h2>  
-  <p>
-  <img class="small" src="rotctl-manual.jpg" alt="Rotator controller front panel"/>
+        </div>
+      </div>            
+      
+      <div class="row">
+        <div class="col-sm-8">                
+  
+  <p class="text-justify">
   The front panel has 4 control buttons (left, right, up and down). In the manual control mode (shown on the picture) the left and
   right buttons are used to rotate the antenna counter clock-wise and clock-wise correspondingly. The up and down buttons are
   not functioning in this mode but might be used in the future versions for the elevation control. All 4 buttons are used 
@@ -91,9 +214,25 @@
   the down button selects the desired choice. The up buttons acts like a backwards button in the menu mode. The same buttons can 
   be used to change numeric values of some parameters in the menu as well (the initial antenna azimuth, for instance).
   </p>
+  
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <a href="./rotator-controller/rotctl-manual.jpg" data-lightbox="rotctl-manual" data-title="Rotation controller front panel">
+            <img class="img-thumbnail" src="./rotator-controller/rotctl-manual.jpg" alt="Rotation controller front panel"/>
+          </a>
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-12">
   <h2>Connections and Other Controls</h2>  
-  <p>
-  <img class="small" src="rotctl-back-conn2.jpg" alt="Rotator controller back panel"/>
+        </div>
+      </div>                 
+      
+      <div class="row">
+        <div class="col-sm-8">                
+  
+  <p class="text-justify">
   All connection sockets of the controller are located on the back along with some additional controls. Normally,
   the controller is powered by a 12V DC source. It is used to power the electronics of the controller and the 
   rotator. Although, when you upload pass information from your PC to the controller, it could be more convenient to power
@@ -104,23 +243,46 @@
   of its rotation. Another 4-pole socket is not presently connected anywhere and is meant to be used in the future versions
   of the device for elevation control.
   </p>
+  
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <a href="./rotator-controller/rotctl-back-conn2.jpg" data-lightbox="rotctl-back-conn2" data-title="Rotation controller back panel">
+            <img class="img-thumbnail" src="./rotator-controller/rotctl-back-conn2.jpg" alt="Rotator controller back panel"/>
+          </a>
+        </div>  
+      </div>
+      
+      <div class="row">
+        <div class="col-sm-12">
   <h2>Software</h2>  
-  <p>The software for the controller was written in C using Arduino SDK.
-  <a href="rotator.ino"><img class="small" src="c-code-icon.png" alt="source code"></a>
+        </div>
+      </div>                 
+      
+      <div class="row">
+        <div class="col-sm-8">                  
+  
+  <p class="text-justify">The software for the controller was written in C using Arduino SDK.
   One of the libraries (the one providing an interface to the
   Real-Time clock module) was updated to better suit the needs of this project. 
   To view the controller source code click the icon on the right. The biggest challenge was to make the code as compact as possible due to the
   choice of the Arduino board. To do this, the embedded boot loader had to be removed to free some additional space. Uploading the
   code now has to be done by using an external programmer.
   </p>
-  <p>Thank you for reading.</p>
-  <p>73 !</p>
-</div>
+  
+        </div>
+        <div class="col-sm-3 offset-sm-1">
+          <a href="./rotator-controller/rotator.ino"><img class="img-thumbnail" src="./rotator-controller/c-code-icon.png" alt="C source code"/></a>
+        </div>  
+      </div>     
+  
+    </div>
+  </div>
 
-        <DIV class="row-end"></DIV>
-      </DIV>
-<!-- Page footer -->
-      <DIV class="separator"></DIV>
-    </DIV>
-  </BODY>
-</HTML>
+  <!-- Bootstrap core JavaScript -->
+  <script src="./jquery-1.11.1.min.js"></script>
+  <script src="./bootstrap.bundle.min.js"></script>
+  <script src="./lightbox/js/lightbox.js"></script>
+
+</body>
+
+</html>
